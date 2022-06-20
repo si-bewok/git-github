@@ -1,0 +1,131 @@
+Version Control System : sistem yang mengelola perubahan serta menyimpan perubahan dari dokumen / source code
+
+Why VCS?
+    1. Manajemen dokumen (melacak history dari perubahan)
+    2. Sharing dokumen (kolaborasi)
+    3. Mengetahui siapa & kapan perubahan
+    4. Memungkinkan kembali ke keadaan sebelumnya
+
+Git
+1. software untuk mengelola perubahan pada file di dalam folder ('repository')
+2. riwayat perubahan file disimpan menggunakan serangkaian 'commit' (1 commit 1 snapshot)
+3. branch dan merge
+
+GitHub
+1. website / layanan cloud untuk mengelola perubahan pada file di dalam repository
+
+Istilah dalam Git
+1. repo = folder project
+2. commit = rekaman / snapshot perubahan
+3. hash = penanda unik pada commit
+4. checkout = berpindah ke sebuah commit / branch
+5. branch = cabang dari commit
+6. merge = menggabungkan branch
+7. remote = sumber yang memiliki repo
+8. clone = mengambil repo dari remote
+9. push = mengirimkan commit ke repo
+10. pull = mengambil commit dari repo
+11. merge conflict = baris yg sama diubah oleh 2 branch yang berbeda
+
+Branching 
+- membuat Git branch
+- membuat snapshot tanpa mengganggu master branch
+- fitur experimental
+- 2 orang mengerjakan repo yang sama
+
+Forking 
+- membuat 'copy' dari repo orang lain (beserta historynya)
+- jembatan antara repo original dan duplikatnya
+- modifikasi terhadap repo original
+- berkontribusi pada repo orang lain
+- fork != clone
+
+
+
+Working Area pada Git
+1. Working Tree (Local folder)
+2. Staging Area
+3. History
+
+Commands
+- pwd = print working directory (tempat saat ini berada)
+- ls = lists (mengetahui ada file apa saja)
+- clear = membersihkan terminal
+- cd = change directory
+- git init = inisialisasi folder menjadi repo
+- cd .. = naik satu level directory
+- cd / cd ~ = home directory
+- cd - = kembali ke sebelumnya
+- cd / = root directory
+
+Melihat staging area
+- git status = mengetahui status repo saat ini
+
+Langkah2 :
+1. Masukkan ke staging area
+- git add <file> = commit sebuah file
+- git add . = commit semua file
+
+sebelum melakukan commit, tambahkan data user terlebih dahulu :
+- git config --global user.name "your name"
+- git config --global user.email "you@email.com"
+
+2. Lakukan commit
+ketika commit 
+- git commit -m "Pesan"
+- (jika modified) git commit -am "Pesan"
+
+3. Melihat history/log yang telah dilakukan
+- git log
+- git log -3 (3 hal terakhir)
+- git log -- <namafile> (melihat scr spesifik)
+
+4. Kembali ke sebuah keadaan
+- git checkout <5 digit awal commit hashnya> -- <namafile>
+
+
+Branch di Git
+1. Membuat branch
+- git branch = melihat terdapat branch apa saja
+- git branch <namaBranch>
+
+2. Melihat branch melalui graph
+> git log --all --decorate --oneline --graph
+// supaya lebih mudah, buat alias dgn shell
+> alias graph="git log --all --decorate --oneline --graph"
+
+3. Berpindah branch
+> git checkout <namaBranch>
+
+4. Menghapus branch
+> git branch -d <namaBranch>
+> git branch --merged (melihat branch yg sudah di merge)
+> git branch -D <namaBranch> (hapus walaupun blm di merge)
+
+Merge di Git
+1. Fast forward -> terjadi ketika branch berada dalam direct path
+2. Three way merge -> merge commit with recursive strategy
+
+Langkah : 
+1. Checkout ke master
+2. Melakukan merge
+> git merge <nama branch>
+
+
+
+Git Remote -> menghubungkan duplikat repo git local dengan cloud platform (ex: GitHub)
+
+1. Melakukan clone
+> git clone <url>
+
+2. Cek nama remote
+> git remote // defaultnya GitHub itu 'origin'
+> git remote -v 
+
+3. Melakukan push
+> git push
+
+4. Mengambil perubahan
+> git fetch
+> git pull
+
