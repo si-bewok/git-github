@@ -124,6 +124,9 @@ Git Remote -> menghubungkan duplikat repo git local dengan cloud platform (ex: G
 
 3. Melakukan push
 > git push
+> git remote add origin https://github.com/si-bewok/phpdasar.git
+> git branch -M main
+> git push -u origin main
 
 4. Mengambil perubahan
 > git fetch
